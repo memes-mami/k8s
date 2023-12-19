@@ -1,4 +1,4 @@
-import time
+import time , csv
 import subprocess
 import random
 import pandas as pd
@@ -57,7 +57,7 @@ if last_node == 'master':
 
 # Extract the first and last nodes
 first_node = sorted_data[0]['Node']
-zookeeper_pods = get_zookeeper_pods_on_node(node_name)
+zookeeper_pods = get_zookeeper_pods_on_node(last_node)
 picked_zookeeper_pod = None  # Initialize the variable
 
 if len(zookeeper_pods) > 0:
