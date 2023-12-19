@@ -160,3 +160,5 @@ print(f"Time Duration for the restore script: {duration2} seconds")
 print(f"Time Duration of totaal time : {durationt} seconds")
 csv_file_path = 'timevikorz.csv'
 update_csv_file(csv_file_path, [durationt, duration1, duration2])
+arguments = [picked_zookeeper_pod]
+subprocess.run(["python3", "delete.py"] + arguments)

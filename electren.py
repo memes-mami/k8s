@@ -147,3 +147,5 @@ for chunk_df in chunks:
     print(f"Time Duration of totaal time : {durationt} seconds")
     csv_file_path = 'timeelectren.csv'
     update_csv_file(csv_file_path, [durationt, duration1, duration2])
+    arguments = [picked_nginx_pod]
+    subprocess.run(["python3", "delete.py"] + arguments)
