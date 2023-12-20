@@ -1,134 +1,3 @@
-cd
-ls nano electren.py
-ls nano electrez.py
-ls nano electren.py
-OS="xUbuntu_20.04"
-VERSION=1.27
-echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
-curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key add -
-curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
-# Install CRI-O
-sudo apt update
-yes | sudo apt install cri-o cri-o-runc
-# Update CRI-O CIDR subnet
-sudo sed -i 's/10.85.0.0/172.24.0.0/g' /etc/cni/net.d/100-crio-bridge.conf
-sudo sed -i 's/10.85.0.0/172.24.0.0/g' /etc/cni/net.d/100-crio-bridge.conflist
-# Start and enable Service
-sudo systemctl daemon-reload
-sudo systemctl restart crio
-sudo systemctl enable crio
----------------------------
-Error 1 (its better if we run it early to escape the error
-for code :  kubectl edit cm kubelet-config -n kube-system
-error: 
-/usr/local/bin/kubectl: line 2: syntax error near unexpected token `<'
-/usr/local/bin/kubectl: line 2: `<html><head>'
-Do 
-sudo rm /usr/local/bin/kubectl
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x kubectl
-sudo mv kubectl /usr/local/bin/kubectl
----------------------------------------------------------------------------------------------------------------
-sudo  cp kube.yaml /etc/kubernetes/kubelet
--------------------------------------------------------------------------------------
-then check kubelet running status by 
-sudo systemctl daemon-reload
-systemctl restart kubelet
-systemctl stop kubelet
-systemctl enable kubelet
-systemctl start kubelet
-systemctl restart kubelet
-yes | sudo kubeadm config images pull --cri-socket unix:///var/run/crio/crio.sock
-sudo sysctl -p
-sudo kubeadm init   --cri-socket unix:///var/run/crio/crio.sock
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-Alternatively, if you are the root user, you can run:
-kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-----------------
-TO CHECK CLUSTER STATUS 
-kubectl cluster-info
----------------------------------------------------------------------------------------------------------
-the next configuration is needed for k8s cluster 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
-------------------------------------------------------------------------------------------
-Next download the custom resources necessary to configure Calico:
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml -O
---------------------------------------------------------------------------------------------
-Create the manifest in order to install Calico:
-kubectl create -f custom-resources.yaml
-Untaint the node: (needed or else the pods wont run) 
-kubectl taint nodes --all node-role.kubernetes.io/master-
-kubectl taint nodes --all  node-role.kubernetes.io/control-plane-
-configure calcio to work ( as coredns pods don’t run at first time) 
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.ymlserviceaccount/flannel
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-
-kubectl create -f custom-resources.yaml
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.crds.yaml
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml -O
-Create the manifest in order to install Calico:
-kubectl create -f custom-resources.yaml
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.ymlserviceaccount/flannel
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-
-kubectl create -f custom-resources.yaml
-curl -LO https://raw.githubusercontent.com/memes-mami/k8s/main/components.yaml
-kubectl apply -f components.yaml
-------------------------------------------------------------------------------------------------
-kubeadm token create --print-join-command # (used to connect worker nodes)
-sudo sysctl -p
-sudo kubeadm init   --cri-socket unix:///var/run/crio/crio.sock
-kubectl get no
-kubeadm token create --print-join-command # (used to connect worker nodes)
-kubectl get no
-sudo apt-get update
-yes | sudo apt-get install libprotobuf-dev libprotobuf-c0-dev protobuf-c-compiler protobuf-compiler python-protobuf libnl-3-dev libcap-dev libaio-dev libnet-dev
-yes | sudo apt install libprotobuf-dev protobuf-c-compiler protobuf-compiler python-protobuf libnl-3-dev libcap-dev libaio-dev libnet-dev libprotobuf-c-dev
-yes | sudo apt install gcc
-yes | sudo apt-get install libdrm-dev libdrm-amdgpu1
-yes | sudo apt-get install libgnutls28-dev
-yes | sudo apt-get install libnftables-dev
-yes | sudo apt install pkg-config libbsd-dev asciidoc
-git clone https://github.com/checkpoint-restore/criu.git
-yes | sudo apt install python3-pip
-yes | sudo pip3 install protobuf
-sudo pip3 install psutil
-pip install redis
-pip install kubernetes
-pip install /root/criu/crit
-pip install wheel
-pip install build
-pip install numpy
-sudo apt update
-apt-get update
-yes | sudo apt install buildah
-make
-sudo make install
-sudo sed -i 's|# enable_criu_support = false|enable_criu_support = true\ndrop_infra_ctr=false\nenable_Checkpoint=true|' /etc/crio/crio.conf
-sudo sed -i 's|# Enable/disable the generation of the container,|# Enable/disable the generation of the container,|' /etc/crio/crio.conf
-sudo systemctl restart crio
-nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-sudo nano /etc/kubernetes/manifests/kube-apiserver.yaml
-nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-systemctl status kubelet  #check is kubelet is running or not
-clear
-ls
-cd
-kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-----------------
-TO CHECK CLUSTER STATUS 
-kubectl cluster-info
----------------------------------------------------------------------------------------------------------
-the next configuration is needed for k8s cluster 
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
 ------------------------------------------------------------------------------------------
 Next download the custom resources necessary to configure Calico:
@@ -1856,3 +1725,276 @@ kubectl top no
 bash finalelectren.sh
 kubectl get po
 kubectl get po | grep nginx-pod-worker
+clear
+cd
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+kubectl apply -f nginxn.yaml
+kubectl get po
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+kubectl apply -f components.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+ssh -T git@github.com
+git checkout -b master3
+git add .
+git commit -m "Add files to master3 branch"
+git push origin master3
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------
+kubectl apply -f components.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+---------v
+bash finalelectrez.sh
+ssh -T git@github.com
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master3
+git add .
+git commit -m "Add files to master3 branch"
+git push origin master3
+cd
+kubectl get po
+kubectl top no
+kubectl apply -f  multi-node-pods.yaml
+kubectl get po
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl get po
+kubectl apply -f  multi-node-pods.yaml
+kubectl get po
+nano createn.sh
+./createn.sh > nginxn.yaml
+kubectl get po
+kubectl delete pods -l app=nginx
+kubectl apply -f nginxn.yaml
+kubectl get no
+kubectl get po
+kubectl get replicaset
+kubectl delete nginx-replicaset
+kubectl delete replicaset nginx-replicaset
+ls
+kubectl get po
+bash finalelectrez.sh
+bash finalelectren.sh
+ls
+nano electren.py
+nano vikorn.py
+nano normaln.py
+nano topsisn.py
+
+nano electrez.py.py
+nano electrez.py
+nano vikorz.py
+nanonormalz.py
+nano normalz.py
+ls
+nano zood.yaml
+ls
+nano createn.sh
+nano restorez.sh
+nano createz.sh
+kubectl get po | grep zoo
+kubectl delete pods -l app=zookeeper -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' | xargs -I {} kubectl delete pod {}
+kubectl delete pods -l app=zookeeper
+kubectl get po | grep zoo
+bash createz.sh > zooz.yaml
+nano zooz.yaml
+kubectl apply -f zoos.yaml
+kubectl apply -f zooz.yaml
+ssh-keygen -t rsa -b 4096 -C "vishnu107109@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/your_private_key
+cat ~/.ssh/your_public_key.pub
+cat  ~/.ssh/your_private_key
+ssh-add ~/.ssh/your_private_key
+ssh-keygen -t rsa -b 4096 -C "vishnu107109@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/your_private_key
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master2
+git .add
+git add .
+git commit -m "Add new "
+git push origin master2
+ssh-keygen -t rsa -b 4096 -C "vishnu107109@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+pbcopy < ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub
+kubectl top no

@@ -9,23 +9,22 @@ def update_csv_file(file_path, row):
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(row)
 def get_zookeeper_pods_on_node(node_name):
-    try:
-        # Get the list of Zookeeper pods running on the specified node
-        command = [
-            'kubectl',
-            'get',
-            'pods',
-            '--all-namespaces',
-            f'--field-selector=spec.nodeName={node_name}',
-            '-l', 'app=zookeeper',
-            '-o', 'custom-columns=:metadata.name',
-            '--no-headers'
-        ]
-        zk_pods = subprocess.check_output(command, text=True).strip().split('\n')
-        return zk_pods
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-        return None
+    config.load_kube_config()  # Load the kubeconfig file
+
+    v1 = client.CoreV1Api()
+    
+    # List all pods in the default namespace
+    pod_list = v1.list_namespaced_pod(namespace="default")
+
+    zookeeper_pods = []
+
+    # Iterate over pods and identify Zookeeper pods on the specified node
+    for pod in pod_list.items:
+        if pod.spec.node_name == node_name and "zookeeper" in pod.metadata.name.lower():
+            zookeeper_pods.append(pod.metadata.name)
+
+    return zookeeper_pods
+
 
 def run_bash_script(script_path, script_arguments):
     try:
