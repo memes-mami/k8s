@@ -18,7 +18,7 @@ def identify_zookeeper_pods(node_name):
     return zookeeper_pods
 
 if __name__ == "__main__":
-    node_name = "worker1"  # Replace with the desired node name
+    node_name = "worker7"  # Replace with the desired node name
     zookeeper_pods = identify_zookeeper_pods(node_name)
 
     if zookeeper_pods:

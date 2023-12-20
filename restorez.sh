@@ -31,10 +31,20 @@ spec:
     kubernetes.io/hostname: $WORKER_NODE
 
 EOF
+start_time=$(date +%s.%N)
+
 while [ "$(kubectl get pod $NEW_POD_NAME -o jsonpath='{.status.phase}')" != "Running" ]; do
     echo "Waiting for the pod to be in the 'Running' state..."
     sleep 1
 done
+
+end_time=$(date +%s.%N)
+
+# Calculate the time taken for the pod to be in the 'Running' state
+execution_time=$(echo "$end_time - $start_time" | bc)
+# Append the execution time and pod name to a CSV file
+echo "$NEW_POD_NAME,$execution_time" >> execution_times.csv
+
 # Step 2: Copy the backup file into the new pod
 kubectl cp checkpointw/$BACKUP_FILE $NEW_POD_NAME:$BACKUP_DEST_PATH
 

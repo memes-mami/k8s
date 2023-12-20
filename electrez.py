@@ -122,6 +122,9 @@ for chunk_df in chunks:
     for i, node in enumerate(ranked_nodes_electre, start=1):
         print(f"{i}. {node}")
     node_name = ranked_nodes_electre[0]
+    b1 = 'finding_n_e_z.sh'
+    run_bash_script(b1, [node_name])
+    run_bash_script(b1, [ranked_nodes_electre[-1]])
     zookeeper_pods = get_zookeeper_pods_on_node(node_name)
     picked_zookeeper_pod = None  # Initialize the variable
 
@@ -130,7 +133,7 @@ for chunk_df in chunks:
         print(f"Picked Zookeeper Pod: {picked_zookeeper_pod}")
     else:
         print(f"Failed to retrieve Zookeeper pods running on node '{node_name}'.")
-
+        continue
     bash_script_path = 'checktry.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
@@ -138,7 +141,7 @@ for chunk_df in chunks:
     duration1 = time.time() - start_time
     print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
-    bash_s2 = 'checkz.sh'
+    bash_s2 = 'checkze.sh'
     print(f"the selected pod to checkpoint :{ranked_nodes_electre[-1]}")
     run_bash_script(bash_s2, [ranked_nodes_electre[-1]])
     durationt = time.time() - start_time

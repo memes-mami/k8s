@@ -1,0 +1,4 @@
+NodeName,ApplicationName,PodCount
+worker7,nginx,6
+worker17,nginx,6
+worker17,zookeeper,1

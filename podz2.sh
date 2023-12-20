@@ -49,3 +49,30 @@ spec:
 
 EOF
 done
+
+#!/bin/bash
+
+
+for WORKER_NODE in {1..21}; do
+    NEW_POD_NAME="zookeeper-pod3-worker${WORKER_NODE}"
+    ZK_IMAGE="digitalwonderland/zookeeper"  # Replace with your ZooKeeper image and tag
+
+    # Create a new ZooKeeper pod on the current worker node
+    kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: $NEW_POD_NAME
+spec:
+  containers:
+  - name: zookeeper
+    image: $ZK_IMAGE
+    ports:
+    - containerPort: 2181
+    - containerPort: 2888
+    - containerPort: 3888
+  nodeSelector:
+    kubernetes.io/hostname: worker${WORKER_NODE}
+
+EOF
+done
