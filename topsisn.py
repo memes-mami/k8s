@@ -1,6 +1,6 @@
-import time,csv
+import time,csv,sys
 import subprocess
-import random
+import random , re
 import pandas as pd
 import numpy as np
 from kubernetes import client, config
@@ -8,6 +8,8 @@ def update_csv_file(file_path, row):
     with open(file_path, 'a', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(row)
+def key_function(item):
+    return int(item[1][:-1]) + int(item[2][:-2])
 def get_nginx_pods_on_node(node_name):
     try:
         # Get the list of Nginx pods running on the specified node
@@ -26,6 +28,34 @@ def get_nginx_pods_on_node(node_name):
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         return None
+def get_pod_metrics(pod_name):
+    try:
+        # Get CPU and memory metrics for the pod
+        command = ['kubectl', 'top', 'pod', pod_name]
+        metrics = subprocess.check_output(command, text=True)
+        return metrics
+    except subprocess.CalledProcessError as e:
+        print(f"Error fetching metrics for pod {pod_name}: {e}")
+        return None
+def extract_cpu_memory_usage(metrics):
+    # Extract CPU and memory usage from the metrics
+    match = re.search(r'(\d+m)\s+(\d+Mi)', metrics)
+    if match:
+        cpu_usage, memory_usage = match.groups()
+        return cpu_usage, memory_usage
+    else:
+        return None, None
+
+def get_total_resources(metrics):
+    # Parse CPU and memory metrics and calculate total resources
+    try:
+        cpu_usage, memory_usage = metrics.split()[1:3]
+        cpu_usage = int(cpu_usage[:-1])  # Remove the trailing %
+        memory_usage = int(memory_usage[:-2])  # Remove the trailing Mi
+        total_resources = cpu_usage + memory_usage
+        return total_resources
+    except ValueError:
+        return None
 
 def run_bash_script(script_path, script_arguments):
     try:
@@ -35,6 +65,8 @@ def run_bash_script(script_path, script_arguments):
         print("Bash script executed successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Error: Bash script execution failed. {e}")
+
+
 
 
 def normalize_criteria(criteria):
@@ -124,20 +156,36 @@ for chunk_df in chunks:
         print(f"{i}. {node}")
 
     node_name = ranked_nodes_topsis[0]
-    b1 = 'finding_n_t_n.sh'
-    run_bash_script(b1, [node_name])
-    run_bash_script(b1, [ranked_nodes_topsis[-1]])
+#    b1 = 'finding_n_t_n.sh'
+ #   run_bash_script(b1, [node_name])
+  #  run_bash_script(b1, [ranked_nodes_topsis[-1]])
     nginx_pods = get_nginx_pods_on_node(node_name)
+ 
+    pod_resources = []
+
+    sorted_l=[]
     picked_nginx_pod = None  # Initialize the variable
 
     if len(nginx_pods) > 0:
-        picked_nginx_pod = random.choice(nginx_pods)
-        print(f"Picked nginx Pod: {picked_nginx_pod}")
+        pod_resources = []
+
+        for pod in nginx_pods:
+            metrics = get_pod_metrics(pod)
+            if metrics:
+                cpu_usage, memory_usage = extract_cpu_memory_usage(metrics)
+                if cpu_usage is not None and memory_usage is not None:
+                    pod_resource = [pod, cpu_usage, memory_usage]
+                    pod_resources.append(pod_resource)
+
+    # Sort pods based on total resources
+        sorted_l = sorted(pod_resources, key=key_function,reverse=True)
     else:
         print(f"Failed to retrieve nginx pods running on node '{node_name}'.")
         continue
+    
+    picked_nginx_pod = sorted_l[0][0]
 
-    bash_script_path = 'checktry.sh'
+    bash_script_path = 'checktrynt.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
     run_bash_script(bash_script_path, [node_name,picked_nginx_pod])
@@ -146,7 +194,7 @@ for chunk_df in chunks:
 
     bash_s2 = 'checknt.sh'
     print(f"the selected pod to checkpoint :{ranked_nodes_topsis[-1]}")
-    run_bash_script(bash_s2, [ranked_nodes_topsis[-1]])
+    run_bash_script(bash_s2, [ranked_nodes_topsis[-1],node_name])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
@@ -154,4 +202,6 @@ for chunk_df in chunks:
     csv_file_path = 'timetopsisn.csv'
     update_csv_file(csv_file_path, [durationt, duration1, duration2])
     arguments = [picked_nginx_pod]
+    bash3 = 'changetnt.sh'
+    run_bash_script(bash3, [node_name])
     subprocess.run(["python3", "delete.py"] + arguments)

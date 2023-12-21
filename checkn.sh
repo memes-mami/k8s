@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 # Set the threshold values for CPU and memory usage
-CPU_THRESHOLD=7
-MEMORY_THRESHOLD=7
+CPU_THRESHOLD=3
+MEMORY_THRESHOLD=71
 
 # Specify the worker node name from the command line argument
 WORKER_NODE="$1"
@@ -17,9 +17,10 @@ WORKER_NODE="$1"
 METRICS=$(kubectl top node $WORKER_NODE | tail -n +2)
 
 # Extract CPU and memory usage percentages and remove '%' and 'm' characters
-CPU_USAGE=$(echo "$METRICS" | awk '{print $2}' | tr -d '%m')
-MEMORY_USAGE=$(echo "$METRICS" | awk '{print $3}' | tr -d '%m')
-
+CPU_USAGE=$(echo "$METRICS" | awk '{print $3}' | tr -d '%m')
+MEMORY_USAGE=$(echo "$METRICS" | awk '{print $5}' | tr -d '%m')
+echo CPU_USAGE=$(echo "$METRICS" | awk '{print $3}')
+echo MEMORY_USAGE=$(echo "$METRICS" | awk '{print $5}')
 # Check if CPU or memory usage exceeds the thresholds
 if [ "$CPU_USAGE" -gt "$CPU_THRESHOLD" ] || [ "$MEMORY_USAGE" -gt "$MEMORY_THRESHOLD" ]; then
     echo "yes"

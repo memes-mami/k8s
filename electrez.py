@@ -1,9 +1,13 @@
-import time,csv
+import time,csv,sys,re
 import subprocess
 import random
 import pandas as pd
 import numpy as np
 from kubernetes import client, config
+
+def key_function(item):
+    return int(item[1][:-1]) + int(item[2][:-2])
+
 def update_csv_file(file_path, row):
     with open(file_path, 'a', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
@@ -12,7 +16,7 @@ def get_zookeeper_pods_on_node(node_name):
     config.load_kube_config()  # Load the kubeconfig file
 
     v1 = client.CoreV1Api()
-    
+
     # List all pods in the default namespace
     pod_list = v1.list_namespaced_pod(namespace="default")
 
@@ -24,6 +28,26 @@ def get_zookeeper_pods_on_node(node_name):
             zookeeper_pods.append(pod.metadata.name)
 
     return zookeeper_pods
+
+def get_pod_metrics(pod_name):
+    try:
+        # Get CPU and memory metrics for the pod
+        command = ['kubectl', 'top', 'pod', pod_name]
+        metrics = subprocess.check_output(command, text=True)
+        return metrics
+    except subprocess.CalledProcessError as e:
+        print(f"Error fetching metrics for pod {pod_name}: {e}")
+        return None
+
+def extract_cpu_memory_usage(metrics):
+    # Extract CPU and memory usage from the metrics
+    match = re.search(r'(\d+m)\s+(\d+Mi)', metrics)
+    if match:
+        cpu_usage, memory_usage = match.groups()
+        return cpu_usage, memory_usage
+    else:
+        return None, None
+
 
 
 def run_bash_script(script_path, script_arguments):
@@ -122,19 +146,30 @@ for chunk_df in chunks:
     for i, node in enumerate(ranked_nodes_electre, start=1):
         print(f"{i}. {node}")
     node_name = ranked_nodes_electre[0]
-    b1 = 'finding_n_e_z.sh'
-    run_bash_script(b1, [node_name])
-    run_bash_script(b1, [ranked_nodes_electre[-1]])
+#    b1 = 'finding_n_e_z.sh'
+ #   run_bash_script(b1, [node_name])
+  #  run_bash_script(b1, [ranked_nodes_electre[-1]])
     zookeeper_pods = get_zookeeper_pods_on_node(node_name)
     picked_zookeeper_pod = None  # Initialize the variable
 
     if len(zookeeper_pods) > 0:
-        picked_zookeeper_pod = random.choice(zookeeper_pods)
-        print(f"Picked Zookeeper Pod: {picked_zookeeper_pod}")
+        pod_resources = []
+
+        for pod in zookeeper_pods:
+            metrics = get_pod_metrics(pod)
+            if metrics:
+                cpu_usage, memory_usage = extract_cpu_memory_usage(metrics)
+                if cpu_usage is not None and memory_usage is not None:
+                    pod_resource = [pod, cpu_usage, memory_usage]
+                    pod_resources.append(pod_resource)
+    
+    # Sort pods based on total resources
+        sorted_list = sorted(pod_resources, key=key_function, reverse=True)
     else:
         print(f"Failed to retrieve Zookeeper pods running on node '{node_name}'.")
         continue
-    bash_script_path = 'checktry.sh'
+    picked_zookeeper_pod = sorted_list[0][0]
+    bash_script_path = 'checktryze.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
     run_bash_script(bash_script_path, [node_name,picked_zookeeper_pod])
@@ -143,7 +178,7 @@ for chunk_df in chunks:
 
     bash_s2 = 'checkze.sh'
     print(f"the selected pod to checkpoint :{ranked_nodes_electre[-1]}")
-    run_bash_script(bash_s2, [ranked_nodes_electre[-1]])
+    run_bash_script(bash_s2, [ranked_nodes_electre[-1],node_name])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
@@ -151,4 +186,6 @@ for chunk_df in chunks:
     csv_file_path = 'timeelectrez.csv'
     update_csv_file(csv_file_path, [durationt, duration1, duration2])
     arguments = [picked_zookeeper_pod]
+    bash3 = 'changetze.sh'
+    run_bash_script(bash3, [node_name])
     subprocess.run(["python3", "delete.py"] + arguments)

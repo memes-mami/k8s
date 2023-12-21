@@ -1,25 +1,25 @@
-import time
-import csv
+import time,csv,sys
 import subprocess
-import random
+import random , re
 import pandas as pd
 import numpy as np
 from kubernetes import client, config
-
 def update_csv_file(file_path, row):
     with open(file_path, 'a', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(row)
-
+def key_function(item):
+    return int(item[1][:-1]) + int(item[2][:-2])
 def get_nginx_pods_on_node(node_name):
     try:
+        # Get the list of Nginx pods running on the specified node
         command = [
             'kubectl',
             'get',
             'pods',
             '--all-namespaces',
             f'--field-selector=spec.nodeName={node_name}',
-            '-l', 'app=nginx',
+            '-l', 'app=nginx',  # Adjust the label selector based on your deployment
             '-o', 'custom-columns=:metadata.name',
             '--no-headers'
         ]
@@ -28,9 +28,38 @@ def get_nginx_pods_on_node(node_name):
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         return None
+def get_pod_metrics(pod_name):
+    try:
+        # Get CPU and memory metrics for the pod
+        command = ['kubectl', 'top', 'pod', pod_name]
+        metrics = subprocess.check_output(command, text=True)
+        return metrics
+    except subprocess.CalledProcessError as e:
+        print(f"Error fetching metrics for pod {pod_name}: {e}")
+        return None
+def extract_cpu_memory_usage(metrics):
+    # Extract CPU and memory usage from the metrics
+    match = re.search(r'(\d+m)\s+(\d+Mi)', metrics)
+    if match:
+        cpu_usage, memory_usage = match.groups()
+        return cpu_usage, memory_usage
+    else:
+        return None, None
+
+def get_total_resources(metrics):
+    # Parse CPU and memory metrics and calculate total resources
+    try:
+        cpu_usage, memory_usage = metrics.split()[1:3]
+        cpu_usage = int(cpu_usage[:-1])  # Remove the trailing %
+        memory_usage = int(memory_usage[:-2])  # Remove the trailing Mi
+        total_resources = cpu_usage + memory_usage
+        return total_resources
+    except ValueError:
+        return None
 
 def run_bash_script(script_path, script_arguments):
     try:
+        # Combine the 'bash' command with the script path and arguments
         command = ['bash', script_path] + script_arguments
         subprocess.run(command, check=True)
         print("Bash script executed successfully.")
@@ -94,21 +123,35 @@ def process_window(chunk_df):
 
     ranked_workers_vikor = ranked_nodes_vikor
     node_name = ranked_workers_vikor[0]
-    b1 = 'finding_n_v_n.sh'
-    run_bash_script(b1, [node_name])
-    run_bash_script(b1, [ranked_nodes_vikor[-1]])
+#    b1 = 'finding_n_v_n.sh'
+ #   run_bash_script(b1, [node_name])
+  #  run_bash_script(b1, [ranked_nodes_vikor[-1]])
     nginx_pods = get_nginx_pods_on_node(node_name)
-    picked_nginx_pod = None
+    pod_resources = []
+
+    sorted_l=[]
+    picked_nginx_pod = None  # Initialize the variable
 
     if len(nginx_pods) > 0:
-        picked_nginx_pod = random.choice(nginx_pods)
-        print(f"Picked nginx Pod: {picked_nginx_pod}")
+        pod_resources = []
+
+        for pod in nginx_pods:
+            metrics = get_pod_metrics(pod)
+            if metrics:
+                cpu_usage, memory_usage = extract_cpu_memory_usage(metrics)
+                if cpu_usage is not None and memory_usage is not None:
+                    pod_resource = [pod, cpu_usage, memory_usage]
+                    pod_resources.append(pod_resource)
+
+    # Sort pods based on total resources
+        sorted_l = sorted(pod_resources, key=key_function,reverse=True)
     else:
         print(f"Failed to retrieve nginx pods running on node '{node_name}'.")
-        return  # Return early to skip the rest of the function
-
+        continue
+    
+    picked_nginx_pod = sorted_l[0][0]
     # Rest of your code here
-    bash_script_path = 'checktry.sh'
+    bash_script_path = 'checktrynv.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
     run_bash_script(bash_script_path, [node_name, picked_nginx_pod])
@@ -117,7 +160,7 @@ def process_window(chunk_df):
 
     bash_s2 = 'checknv.sh'
     print(f"the selected pod to checkpoint :{ranked_workers_vikor[-1]}")
-    run_bash_script(bash_s2, [ranked_workers_vikor[-1]])
+    run_bash_script(bash_s2, [ranked_workers_vikor[-1],node_name])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
@@ -125,6 +168,8 @@ def process_window(chunk_df):
     csv_file_path = 'timevikorn.csv'
     update_csv_file(csv_file_path, [durationt, duration1, duration2])
     arguments = [picked_nginx_pod]
+    bash3 = 'changetnv.sh'
+    run_bash_script(bash3, [node_name])
     subprocess.run(["python3", "delete.py"] + arguments)
 
 # Load the dataset from CSV file

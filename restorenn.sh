@@ -7,7 +7,7 @@ fi
 
 # Define variables
 WORKER_NODE="$1"
-NEW_POD_NAME="new-nginx-pod-$(uuidgen | tr '[:upper:]' '[:lower:]')"
+NEW_POD_NAME="new-nginx-pod-$(date +%Y%m%d%H%M%S)"
 NGINX_IMAGE="nginx"  # Replace with your Nginx image and tag
 BACKUP_FILE="new_filename.tar"
 BACKUP_DEST_PATH="/tmp/$BACKUP_FILE"
@@ -53,8 +53,11 @@ echo "$NEW_POD_NAME,$execution_time" >> pod_time_n_n.csv
 
 # Step 2: Copy the backup file into the new pod
 kubectl cp checkpointw/$BACKUP_FILE $NEW_POD_NAME:$BACKUP_DEST_PATH
-
+start_time2=$(date +%s.%N)
 # Step 3: Access the new pod and restore the backup
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PATH"
+end_time2=$(date +%s.%N)
+execution_time2=$(echo "$end_time - $start_time" | bc)
+echo "$NEW_POD_NAME,$execution_time2" >> extract_n_n.csv
 
 echo "Nginx pod '$NEW_POD_NAME' created and restored from backup."

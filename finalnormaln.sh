@@ -24,6 +24,6 @@ while true; do
   python3 normaln.py
 
   # Sleep for 15 seconds before the next iteration
-  sleep 15
+  sleep 45
 done
 

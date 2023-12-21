@@ -24,5 +24,5 @@ while true; do
   python3 vikorz.py
 
   # Sleep for 15 seconds before the next iteration
-  sleep 15
+  sleep 45
 done
