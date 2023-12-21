@@ -43,7 +43,7 @@ end_time=$(date +%s.%N)
 # Calculate the time taken for the pod to be in the 'Running' state
 execution_time=$(echo "$end_time - $start_time" | bc)
 # Append the execution time and pod name to a CSV file
-echo "$NEW_POD_NAME,$execution_time" >> pod_time_z_n.csv
+echo "$NODE_NAME,$WORKER_NODE,$execution_time" >> pod_time_z_n.csv
 
 # Step 2: Copy the backup file into the new pod
 kubectl cp checkpointw/$BACKUP_FILE $NEW_POD_NAME:$BACKUP_DEST_PATH
@@ -52,6 +52,6 @@ start_time2=$(date +%s.%N)
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PATH"
 end_time2=$(date +%s.%N)
 execution_time2=$(echo "$end_time - $start_time" | bc)
-echo "$NEW_POD_NAME,$execution_time2" >> extract_z_n.csv
+echo "$NODE_NAME,$WORKER_NODE,$execution_time2" >> extract_z_n.csv
 # Step 4: Start ZooKeeper in the new pod
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "$ZK_EXEC_PATH start"

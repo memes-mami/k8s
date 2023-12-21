@@ -2,6 +2,7 @@
 
 # Accept the NODE_NAME as an argument
 NODE_NAME="$1"
+NODE_NAME2="$3"
 
 if [ -z "$NODE_NAME" ]; then
     echo "Usage: $0 <node-name>"
@@ -58,7 +59,7 @@ echo "$curl_output"
 # Calculate and display the execution time
 execution_time=$(echo "$end_time - $start_time" | bc)
 echo "Execution Time: $execution_time seconds"
-echo "$POD_NAME,$execution_time" >> curl_n_e.csv
+echo "$NODE_NAME,$NODE_NAME2,$execution_time" >> curl_n_e.csv
 
 # Extract the file location from the output JSON using jq
 file_location=$(echo "$curl_output" | jq -r '.items[0]')

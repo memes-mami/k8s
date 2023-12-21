@@ -1,6 +1,0 @@
-NodeName,ApplicationName,PodCount
-worker9,nginx,6
-worker1,nginx,6
-worker1,zookeeper,1
-worker8,nginx,6
-worker7,nginx,6

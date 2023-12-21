@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 # Set the threshold values for CPU and memory usage
-CPU_THRESHOLD=7
-MEMORY_THRESHOLD=7
+CPU_THRESHOLD=1
+MEMORY_THRESHOLD=1
 
 # Specify the worker node name from the command line argument
 WORKER_NODE="$1"
@@ -28,10 +28,10 @@ if [ "$CPU_USAGE" -gt "$CPU_THRESHOLD" ] || [ "$MEMORY_USAGE" -gt "$MEMORY_THRES
     bash finding_n_n_n.sh "$WORKER_NODE"
     start_time=$(date +%s.%N)
     # Run restorez.sh with the provided worker node name as an argument
-    bash restorenn.sh "$WORKER_NODE"
+    bash restorenn.sh "$WORKER_NODE" "$node_name"
     end_time=$(date +%s.%N)
     execution_time=$(echo "$end_time - $start_time" | bc)
-    echo "$WORKER_NODE,$execution_time" >> restore_n_n.csv
+    echo "$node_name,$WORKER_NODE,$execution_time" >> restore_n_n.csv
 else
     echo "no"
 fi

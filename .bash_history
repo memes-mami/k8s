@@ -1,160 +1,3 @@
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-kubectl top no
-kubectl apply -f components.yaml
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-kubectl get no -o wdie
-kubectl get no -o wide
-kubectl top no
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 export KUBECONFIG=/etc/kubernetes/admin.conf
 ---------
@@ -1998,3 +1841,160 @@ sudo systemctl restart kubelet
 mkdir -p $HOME/.kube
 sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+cd
+su
+xxxxxxxxxxxxx
+c
+cd
+cls
+ls
+nano changetne.sh
+nano changetnn.sh
+nano checknn.sh
+#!/bin/bash
+# Use kubectl delete to delete each Zookeeper pod
+kubectl delete pod new-zookeeper-podworker7
+kubectl delete pod new-zookeeper-podworker9-20231221115758
+kubectl delete pod zookeeper-0
+kubectl delete pod zookeeper-worker1-gqk6l
+kubectl delete pod zookeeper-worker11-887hx
+kubectl delete pod zookeeper-worker15-m2dvj
+kubectl delete pod zookeeper-worker16-c42m8
+kubectl delete pod zookeeper-worker17-dtwhw
+kubectl delete pod zookeeper-worker18-c4xkr
+kubectl delete pod zookeeper-worker2-22bx2
+kubectl delete pod zookeeper-worker5-ln7l9
+cd
+ls
+ckubectl top no
+kubectl top no
+kubectl apply -f components.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl top no
+kubectl apply -f components.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl top no
+bash access.sh
+d
+cdd
+cd
+ls
+nano checktry.sh
+bash access.sh
+kubectl get po | grep acce
+kubectl top no
+ls
+nano checkne.sh
+nano node_metrics.csv
+nano getm.py
+rm getm.py
+nano getm.sh
+bash getm.sh worker10
+nano checkn.sh
+nano getm.sh
+nano checkn.sh
+bash checkn.sh
+bash checkn.sh worker10
+nano checkn.sh
+bash checkn.sh worker10
+nano checkne.sh
+nano checknt.sh
+nano checknv.sh
+nano checknn.sh
+nano checkzn.sh
+nano checkzv.sh
+nano checkzt.sh
+nano checkze.sh
+nano checkn.sh
+nano getm.sh
+nano checkn.sh
+nano getm.sh
+bash getm.sh worker10
+nano getm.sh
+bash getm.sh worker10
+nano checkn.sh
+nano getm.sh
+mv getm.sh changet.sh
+ls
+nano changet.sh
+nano changetne.sh
+nano changetnt.sh
+nano changetnv.sh
+nano changetnn.sh
+nano changetzn.sh
+nano changetzv.sh
+nano changetzt.sh
+nano changetze.sh
+ls
+nano electren.sh
+nano electren.py
+nano electrez.py
+nano topsisz.py
+nano topsisn.py
+nano vikorn.py
+nano vikorz.py
+nano vikorn.py
+nano normaln.py
+nano normalz.py
+clear
+ls
+ls | grep master
+nano contimaster.sh
+nano electren.py
+clear
+cat electren.sh
+cat electren.py
+nano finalelectren.sh
+nano finalelectrez.sh
+nano finaltopsisz.sh
+nano finaltopsisn.sh
+nano finalvikorn.sh
+nano finalvikorz.sh
+nano finalnormalz.sh
+nano finalnormaln.sh
+kubectl top no
+ls
+ls | grep .csv
+rm curl_n_e.csv extract_n_e.csv pod_time_n_e.csv pod_time_n_t.csv pod_time_z_e.csv pods_e_n.csv pods_e_z.csv pods_n_n.csv pods_t_n.csv pods_t_z.csv restore_n_e.csv timeelectren.csv timeelectrez.csv timetopsisn.csv 
+ls | grep .csv
+kubectl top no
+kubeclt get po -o wide | grep nginx
+kubectl get po -o wide | grep nginx
+ls
+kubectl get po -o wide | grep zoo
+#!/bin/bash
+# Use kubectl delete to delete each pod
+kubectl delete pod new-nginx-pod-20231221143549
+kubectl delete pod new-nginx-pod-20231221144009
+kubectl delete pod new-nginx-pod-20231221151450
+kubectl delete pod new-nginx-pod-20231221151608
+kubectl delete pod new-nginx-pod-4187acbc-eff1-4176-9b50-97e562b8fbe6
+kubectl delete pod new-nginx-pod-84199975-5f1d-4b16-ba67-ac066aaa497b
+kubectl delete pod new-nginx-pod-e7f2e675-cf4d-49eb-abf8-621866557ff7
+kubectl delete pod new-nginx-pod-f055dbeb-065b-421a-b298-3436583b40d5
+kubectl top no
+nano createn.sh
+bash n1.yaml
+clear

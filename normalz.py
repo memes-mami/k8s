@@ -117,7 +117,7 @@ def process_nodes(first_node, last_node):
     bash_script_path = 'checktryzn.sh'
     print(f"the selected node to checkpoint :{last_node}")
     start_time = time.time()
-    run_bash_script(bash_script_path, [last_node, picked_zookeeper_pod])
+    run_bash_script(bash_script_path, [last_node, picked_zookeeper_pod, first_node])
     duration1 = time.time() - start_time
     print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
@@ -129,7 +129,7 @@ def process_nodes(first_node, last_node):
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timenormalz.csv'
-    update_csv_file(csv_file_path, [durationt, duration1, duration2])
+    update_csv_file(csv_file_path, [last_node,first_node, durationt, duration1, duration2])
     arguments = [picked_zookeeper_pod]
     bash3 = 'changetzn.sh'
     run_bash_script(bash3, [node_name])

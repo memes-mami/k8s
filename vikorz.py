@@ -144,7 +144,7 @@ def process_window(chunk_df):
     bash_script_path = 'checktryzv.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
-    run_bash_script(bash_script_path, [node_name, picked_zookeeper_pod])
+    run_bash_script(bash_script_path, [node_name, picked_zookeeper_pod,ranked_workers_vikor[-1]])
     duration1 = time.time() - start_time
     print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
@@ -156,7 +156,7 @@ def process_window(chunk_df):
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timevikorz.csv'
-    update_csv_file(csv_file_path, [durationt, duration1, duration2])
+    update_csv_file(csv_file_path, [node_name, ranked_nodes_vikor[-1],durationt, duration1, duration2])
     arguments = [picked_zookeeper_pod]
     bash3 = 'changetzv.sh'
     run_bash_script(bash3, [node_name])

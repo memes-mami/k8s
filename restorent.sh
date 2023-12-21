@@ -7,6 +7,7 @@ fi
 
 # Define variables
 WORKER_NODE="$1"
+NODE_NAME="$2"
 NEW_POD_NAME="new-nginx-pod-$(date +%Y%m%d%H%M%S)"
 NGINX_IMAGE="nginx"  # Replace with your Nginx image and tag
 BACKUP_FILE="new_filename.tar"
@@ -47,7 +48,7 @@ echo "Time taken for the pod to be in the 'Running' state: $execution_time secon
 
 # Append the execution time to a CSV file
 # Append the execution time and pod name to a CSV file
-echo "$NEW_POD_NAME,$execution_time" >> pod_time_n_t.csv
+echo "$NODE_NAME,$WORKER_NODE,$execution_time" >> pod_time_n_t.csv
 
 
 
@@ -58,6 +59,6 @@ start_time2=$(date +%s.%N)
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PATH"
 end_time2=$(date +%s.%N)
 execution_time2=$(echo "$end_time - $start_time" | bc)
-echo "$NEW_POD_NAME,$execution_time2" >> extract_n_t.csv
+echo "$NODE_NAME,$NEW_POD_NAME,$execution_time2" >> extract_n_t.csv
 
-echo "Nginx pod '$NEW_POD_NAME' created and restored from backup."
+echo "Nginx pod '$WORKER_NODE' created and restored from backup."

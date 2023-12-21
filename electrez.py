@@ -172,7 +172,7 @@ for chunk_df in chunks:
     bash_script_path = 'checktryze.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
-    run_bash_script(bash_script_path, [node_name,picked_zookeeper_pod])
+    run_bash_script(bash_script_path, [node_name,picked_zookeeper_pod,ranked_nodes_electre[-1]])
     duration1 = time.time() - start_time
     print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
@@ -184,7 +184,7 @@ for chunk_df in chunks:
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of totaal time : {durationt} seconds")
     csv_file_path = 'timeelectrez.csv'
-    update_csv_file(csv_file_path, [durationt, duration1, duration2])
+    update_csv_file(csv_file_path, [node_name,ranked_nodes_electre[-1],durationt, duration1, duration2])
     arguments = [picked_zookeeper_pod]
     bash3 = 'changetze.sh'
     run_bash_script(bash3, [node_name])
