@@ -23,4 +23,6 @@ memory_percentage=$(awk -F, -v node="$node" '$2==node {gsub("%","",$6); print $6
 sed -i "s/CPU_THRESHOLD=.*$/CPU_THRESHOLD=$cpu_percentage/" checkne.sh
 sed -i "s/MEMORY_THRESHOLD=.*$/MEMORY_THRESHOLD=$memory_percentage/" checkne.sh
 
+sed -i "s/CPU_THRESHOLD=.*$/CPU_THRESHOLD=$cpu_percentage/" checktryne.sh
+sed -i "s/MEMORY_THRESHOLD=.*$/MEMORY_THRESHOLD=$memory_percentage/" checktryne.sh
 echo "Thresholds updated successfully."

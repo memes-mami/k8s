@@ -25,3 +25,5 @@ sed -i "s/MEMORY_THRESHOLD=.*$/MEMORY_THRESHOLD=$memory_percentage/" checkzv.sh
 
 echo "Thresholds updated successfully."
 
+sed -i "s/CPU_THRESHOLD=.*$/CPU_THRESHOLD=$cpu_percentage/" checktryzv.sh
+sed -i "s/MEMORY_THRESHOLD=.*$/MEMORY_THRESHOLD=$memory_percentage/" checktryzv.sh

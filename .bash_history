@@ -1,265 +1,3 @@
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-kubectl get po 
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-kubectl apply -f components.yaml
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
----------
-cd
-ls
-nano app4.py
-rm pod_info.csv
-python3 app4.py worker8
-python3 app4.py worker7
-nano pod_info.csv
-ano app4.py
-nano app4.py
-python3 app4.py worker7
-python3 app4.py worker17
-nano pod_info.csv
-kubectl get po -o wide | grep worker7
-nano podz2.sh
-nano app5.py
-python3 app
-python3 app5.py
-nano app.sh
-nano app2.sh
-nano app3.sh
-bash app3.sh
-bash app3.sh worker7
-rm app3.sh
-nano app3.sh
-bash app3.sh
-bash app3.sh worker7
-kubectl get po -o wide | grep worker7
-rm app3.sh
-nano app2.sh
-nano app3.sh
-bash app3.sh worker7
-kubectl get pods --all-namespaces -o wide --selector=app=nginx,node=worker7 --namespace=default
-kubectl get pods --all-namespaces -o wide --selector=app=zookeeper,node=worker7 --namespace=default
-kubectl get pods  -o wide --selector=app=zookeeper,node=worker7 --namespace=default
-kubectl get pods  -o wide --selector=app=zookeeper
-kubectl get pods  -o wide --selector=app=nginx
-ls
-nano podz2.sh
-bash podz2.sh
-bash createz.sh
-ls
-bash getz.sh
-bash getz.sh worker5
-bash getz.sh worker7
-bash getzz.sh worker7
-kubectl get po  --selector=app=zookeeper
-kubectl get po -o wide | grep zoo
-ls
-nano electrez.py
-clear
-cat electrez.py
-nano test.py
-rm test.py
-nano test.py
-python3 test.py
-nano test.py
-python3 test.py
-kubectl get po -o wide | grep zoo | grep worker9
-kubectl get po -o wide | grep zoo 
-nano podz2.sh
-nano finding_z_e_n.sh
-nano finding_z_e_z.sh
-nano finding_z_t_n.sh
-nano finding_z_t_z.sh
-nano finding_z_v_z.sh
-nano finding_z_v_n.sh
-nano finding_z_n_n.sh
-nano finding_z_n_z.sh
-nano finding_n_e_n.sh
-nano finding_z_n_n.sh
-mv finding_z_e_n.sh finding_z_e_n.py
-mv finding_z_e_z.sh finding_z_e_z.py
-mv finding_z_t_n.sh finding_z_t_n.py
-mv finding_z_t_z.sh finding_z_t_z.py
-mv finding_z_v_z.sh finding_z_v_z.py
-mv finding_z_v_n.sh finding_z_v_n.py
-mv finding_z_n_n.sh finding_z_n_n.py
-mv finding_z_n_z.sh finding_z_n_z.py
-ls
-nano finding_z_n_n.sh
-nano finding_z_n_n.py
-nano finding_n_n_n.py
-nano finding_n_n_z.py
-mv finding_n_n_n.py finding_n_n_n.sh
-nano finding_n_n_z.py
-nano finding_n_n_z.sh
-nano finding_n_n_n.sh
-nano finding_n_n_z.sh
-nano finding_n_e_z.sh
-nano finding_n_n_z.sh
-nano finding_n_e_n.sh
-nano finding_n_t_n.sh
-nano finding_n_t_z.sh
-nano finding_n_v_z.sh
-nano finding_n_v_n.sh
-ls
-nano electren.py
-kubectl top no
-bash finalelectren.sh
-clear
-cat app4.sh
-clear
-bash finalelectren.sh
-bash finding_n_e_n.sh
-bash finding_n_e_n.sh worker9
-bash finding_n_e_z.sh worker9
-bash app4.sh worker9
-cat app4.sh
-clear
-cat app4.sh
-bash finding_n_e_z.sh worker9
-bash finding_n_e_n.sh worker9
-clear
-nano finding_n_e_n.sh
-bash finding_n_e_n.sh worker9
-clear
-ls
-clear
-cat finding_n_e_z.sh
-nano finding_n_e_z.sh
-bash finding_n_e_z.sh worker9
-cd
-bash podz2.py
-ls
-bash podz2.sh
-kubectl get po | grep zoo
-kubectl get po
-nano createn.sh
-bash createn.sh > n1.yaml
-kubectl apply -f n1.yaml
-kubectl get po | grep zoo
-kubectl describe pod zookeeper-pod-worker14
-kubectl get po | grep zoo
-nano podz2.sh
-nano restorez.sh
-kubectl get pods --all-namespaces -o wide --selector=app=nginx,node=worker7 --namespace=default
-kubectl get pods --all-namespaces -o wide --selector=app=zookeeper,node=worker7 --namespace=default
-kubectl get pods --all-namespaces -o wide --selector=app=zookeeper
-nano createz.sh
-bash checktry.sh worker1 zookeeper-worker1-87f5f
-curl -sk -X POST  "https://10.0.0.5:10250/checkpoint/default/zookeeper-worker1-87f5f/zookeeper"   --key /etc/kubernetes/pki/apiserver-kubelet-client.key   --cacert /etc/kubernetes/pki/ca.crt   --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt
-curl -sk -X POST  "https://30.0.0.5:10250/checkpoint/default/zookeeper-worker11-887hx/zookeeper"   --key /etc/kubernetes/pki/apiserver-kubelet-client.key   --cacert /etc/kubernetes/pki/ca.crt   --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt
-kubectl get po | grep zoo
-bash podz2.sh
-ls
-clear
-ls
-nano app3.py
-nano app3.sh
-bash app3.sh
-bash app3.sh worker7
-nano app3.sh
-bash app3.sh worker7
-nano app3.sh
-bash app3.sh worker7
-kubectl get po -o wide | grep nginx | grep worker7
-nano finding_z.py
-python3 finding_z.py worker7
-kubectl get po -o wide | grep zoo | grep worker7
-nano app3.sh
-nano finalnum.sh
-bash finalnum.sh worker7
-nano finalnum.sh
-bash finalnum.sh worker7
-nano finalnum.sh
-cat finalnum.sh
-nano fnum.sh
-bash fnum.sh worker7
-ls
-bash app3.sh worker7
-nano oap3.sh
-cat app3.sh
-nano app4.sh
-bash app4.sh worker7
-nano app4.sh
-bash app4.sh worker7
-bash app4.sh worker9
-kubectl get po -o wide | grep zoo | grep worker9
-python3 finding_z.py
-python3 finding_z.py worker9
-cat finding_z.py
-nano app4.sh
-bash app4.sh worker9
-nano app4.sh
-bash app4.sh worker9
-ls
-nano app4.sh
-bash app4.sh worker9
-bash app4.sh worker10
-nano pods_c.csv
-nano finding_z.py
-rm pods_c.csv
-bash app4.sh worker10
-rm pods_c.csv
-bash app4.sh worker10
-nano pods_c.csv
-rm pods_c.csv
-nano finding_z.py
-bash app4.sh worker10
-bash app4.sh worker9
-nano pods_c.csv
 nano finding_z.py
 bash app4.sh worker9
 bash app4.sh worker10
@@ -1998,3 +1736,265 @@ kubectl top no
 nano createn.sh
 bash n1.yaml
 clear
+cd
+ls
+nano checktryne.sh
+cd
+kubectl top no
+kubectl apply -f components.yaml
+ssh -T git@github.com
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master6
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master6
+kubectl top no
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl apply -f components
+kubectl apply -f components.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl top no
+ls | grep .csv
+nano node_metrics.csv
+nano curl_n_e.csv
+rm curl_n_e.csv timeelectren.csv
+nano checkne.sh
+nano checknt.sh
+nano checknv.sh
+nano checknn.sh
+nano checkzn.sh
+nano checkzv.sh
+nano checkzt.sh
+nano checkze.sh
+ssh -T git@github.com
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master6
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master6
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+nano checktryne.sh
+nano checkne.sh
+cd
+bash finalelectren.sh
+kubectl top no
+kubectl get po -o wide | grep nginx | grep worker1
+kubectl apply -f n1.yaml
+kubectl get po -o wide | grep nginx | grep worker1
+ls | grep .csv
+rm extract_n_e.csv
+ls | grep .csv
+rm restore_n_e.csv timeelectren.csv timeelectren.csv pods_e_n.csv
+ls | grep .csv
+rm pod_info_all_nodes.csv
+rm pod_info_worker1.csv
+ls
+ls | grep .csv
+kubectl get po -o wide | nginx
+kubectl get po -o wide | rep nginx
+kubectl get po -o wide | grep nginx
+kubectl top no
+nash finalelectren.sh
+bash finalelectren.sh
+nano electren.py
+ls
+ls | grep .csv
+nano timeelectren.csv
+nano  curl_n_e.csv
+nano restore_n_e.csv
+nano pod_time_n_e.csv
+nano extract_n_e.csv
+nano pods_e_n.csv
+nano electren.py
+nano electrez.py
+nano topsisz.py
+nano topsisn.py
+nano vikorn.py
+nano vikorz.py
+nano normalz.py
+nano normaln.py
+ls
+nano checktryne.sh
+nano checktrynz.sh
+nano checktrynt.sh
+nano checktrynv.sh
+nano checktrynn.sh
+nano checktryzn.sh
+nano checktryzt.sh
+nano checktryzv.sh
+nano checktryzn.sh
+nano checktryze.sh
+nano restorene.sh
+nano restorent.sh
+nano restorenv.sh
+nano restorenn.sh
+nano restorezn.sh
+nano restorene.sh
+nano checktryzv.sh
+nano restorene.sh
+nano restorent.sh
+nano restorenv.sh
+nano restorenN.sh
+nano restorenn.sh
+nano restoreZn.sh
+nano restorezn.sh
+nano restorenv.sh
+nano restorezv.sh
+nano restorezt.sh
+nano restorezE.sh
+nano restoreze.sh
+nano checkne.sh
+nano checknt.sh
+nano checknv.sh
+nano checknn.sh
+nano checknv.sh
+nano checknt.sh
+nano checkze.sh
+nano checknt.sh
+nano checkne.sh
+nano checknt.sh
+nano checknv.sh
+nano checknt.sh
+nano checknn.sh
+nano checkzn.sh
+nano checkzv.sh
+nano checkzt.sh
+nano checkze.sh
+nano electren.py
+nano checktryne.sh
+nano checktrynt.sh
+nano checktrynv.sh
+nano checktrynn.sh
+nano checktryzn.sh
+nano checktryzv.sh
+nano checktryzt.sh
+nano checktryze.sh
+nano electren.py
+nano checkne.sh
+nano checknt.sh
+nano checknv.sh
+nano checknn.sh
+nano checkzn.sh
+nano checkzv.sh
+nano checkzt.sh
+nano checkzv.sh
+nano checkze.sh
+nano electren.py
+nano electrez.py
+nano topsisz.py
+nano topsisn.py
+nano vikorn.py
+nano vikorz.py
+nano normalz.py
+nano normaln.py
+ls | grep .csv
+rm curl_n_e.csv extract_n_e.csv pod_info.csv pod_time_n_e.csv pods_c.csv pods_e_n.csv restore_n_e.csv timeelectren.csv
+kubectl top no
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl apply -f components.yaml
+kubectl top no
+bash finalelectrem.sh
+bash finalelectren.sh
+kubectl apply -f n1.yaml
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+mkdir -p $HOME/.kube
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+kubectl apply -f n1.yaml
+kubectl top no
+bash finalelectren.sh
+ls grep .csv
+ls | grep .csv
+nano restore_n_e.csv
+nano pod_time_n_e.csv
+nano curl_n_e.csv
+cd
+nano checktryne.sh
+nano checktrynt.sh
+nano checktrynv.sh
+nano checktrynt.sh
+nano checktrynn.sh
+nano checktryzn.sh
+n

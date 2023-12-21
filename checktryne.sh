@@ -1,8 +1,15 @@
 #!/bin/bash
+CPU_THRESHOLD=1
+MEMORY_THRESHOLD=1
+csv_file="node_metrics.csv"
 
 # Accept the NODE_NAME as an argument
 NODE_NAME="$1"
 NODE_NAME2="$3"
+cpu_percentage=$(awk -F, -v node="$NODE_NAME2" '$2==NODE_NAME2 {gsub("%","",$4); print $4}' "$csv_file")
+memory_percentage=$(awk -F, -v node="$NODE_NAME2" '$2==NODE_NAME2 {gsub("%","",$6); print $6}' "$csv_file")
+
+if [ "$cpu_percentage" -gt "$CPU_THRESHOLD" ] || [ "$memory_percentage" -gt "$MEMORY_THRESHOLD" ]; then
 
 if [ -z "$NODE_NAME" ]; then
     echo "Usage: $0 <node-name>"
@@ -70,4 +77,6 @@ if [ -n "$file_location" ]; then
     filename=$(basename "$file_location")
 
     kubectl cp access-checkpoint-"$NODE_NAME":/mnt/checkpoints/"$filename" checkpointw/new_filename.tar
+fi
+
 fi
