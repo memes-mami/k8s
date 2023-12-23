@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: zookeeper-worker16
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     app: zookeeper
   template:
@@ -11,7 +11,7 @@ spec:
       labels:
         app: zookeeper
     spec:
-      nodeName: worker16  # Specify the node name where the pod should run
+      nodeName: worker6  # Specify the node name where the pod should run
       containers:
       - name: zookeeper
         image: digitalwonderland/zookeeper

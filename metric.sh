@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Define the output CSV file
-output_csv="node_metrics.csv"
+output_csv="node_metrics_trace.csv"
 
 # Define the duration in seconds
-duration=30 # Collect metrics for 10 times, with 30 seconds between each collection
+duration=300000 # Collect metrics for 10 times, with 30 seconds between each collection
 
 # Define the interval in seconds
-interval=3  # Collect metrics every 30 seconds
+interval=15  # Collect metrics every 30 seconds
 
 # Create a CSV header
 echo "Timestamp,Node,CPU(cores),CPU(%),Memory(bytes),Memory(%)" > "$output_csv"

@@ -44,13 +44,30 @@ end_time=$(date +%s.%N)
 # Calculate the time taken for the pod to be in the 'Running' state
 execution_time=$(echo "$end_time - $start_time" | bc)
 # Append the execution time and pod name to a CSV file
-echo "$NODE_NAME,$WORKER_NAME,$execution_time" >> pod_time_z_v.csv
+echo "$NODE_NAME,$WORKER_NAME,$execution_time" >> startup_latency_z_v.csv
 
 # Step 2: Copy the backup file into the new pod
+start_time3=$(date +%s.%N)
 kubectl cp checkpointw/$BACKUP_FILE $NEW_POD_NAME:$BACKUP_DEST_PATH
+end_time3=$(date +%s.%N)
+execution_time3=$(echo "$end_time3 - $start_time3" | bc)
+
+csv_file="copy_tar_z_v.csv"
+last_line=$(tail -n 1 "$csv_file")
+
+# Extract the numerical value from the last line
+numeric_value=$(echo "$last_line" | awk -F',' '{print $3}')
+
+# Perform some operation on the numeric value (add it to another value, e.g., 5)
+new_value=$((numeric_value + execution_time3))
+updated_last_line=$(echo "$last_line" | awk -F',' -v new_value="$new_value" '{$3 = new_value; print}')
+sed -i '$s/.*/'"$updated_last_line"'/' "$csv_file"
+
 start_time2=$(date +%s.%N)
 # Step 3: Access the new pod and restore the backup
+
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PATH"
+
 end_time2=$(date +%s.%N)
 execution_time2=$(echo "$end_time - $start_time" | bc)
 echo "$NODE_NAME,$WORKER_NODE,$execution_time2" >> extract_z_v.csv

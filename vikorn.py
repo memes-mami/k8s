@@ -1,15 +1,19 @@
-import time,csv,sys
+import time
+import csv
 import subprocess
-import random , re
+import random
+import re
 import pandas as pd
 import numpy as np
-from kubernetes import client, config
+
 def update_csv_file(file_path, row):
     with open(file_path, 'a', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(row)
+
 def key_function(item):
     return int(item[1][:-1]) + int(item[2][:-2])
+
 def get_nginx_pods_on_node(node_name):
     try:
         # Get the list of Nginx pods running on the specified node
@@ -28,6 +32,7 @@ def get_nginx_pods_on_node(node_name):
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         return None
+
 def get_pod_metrics(pod_name):
     try:
         # Get CPU and memory metrics for the pod
@@ -37,6 +42,7 @@ def get_pod_metrics(pod_name):
     except subprocess.CalledProcessError as e:
         print(f"Error fetching metrics for pod {pod_name}: {e}")
         return None
+
 def extract_cpu_memory_usage(metrics):
     # Extract CPU and memory usage from the metrics
     match = re.search(r'(\d+m)\s+(\d+Mi)', metrics)
@@ -45,17 +51,6 @@ def extract_cpu_memory_usage(metrics):
         return cpu_usage, memory_usage
     else:
         return None, None
-
-def get_total_resources(metrics):
-    # Parse CPU and memory metrics and calculate total resources
-    try:
-        cpu_usage, memory_usage = metrics.split()[1:3]
-        cpu_usage = int(cpu_usage[:-1])  # Remove the trailing %
-        memory_usage = int(memory_usage[:-2])  # Remove the trailing Mi
-        total_resources = cpu_usage + memory_usage
-        return total_resources
-    except ValueError:
-        return None
 
 def run_bash_script(script_path, script_arguments):
     try:
@@ -121,15 +116,14 @@ def process_window(chunk_df):
     for i, node in enumerate(ranked_nodes_vikor, start=1):
         print(f"{i}. {node}")
 
+    # Rest of your code here
     ranked_workers_vikor = ranked_nodes_vikor
     node_name = ranked_workers_vikor[0]
-#    b1 = 'finding_n_v_n.sh'
- #   run_bash_script(b1, [node_name])
-  #  run_bash_script(b1, [ranked_nodes_vikor[-1]])
+
     nginx_pods = get_nginx_pods_on_node(node_name)
     pod_resources = []
 
-    sorted_l=[]
+    sorted_l = []
     picked_nginx_pod = None  # Initialize the variable
 
     if len(nginx_pods) > 0:
@@ -143,34 +137,30 @@ def process_window(chunk_df):
                     pod_resource = [pod, cpu_usage, memory_usage]
                     pod_resources.append(pod_resource)
 
-    # Sort pods based on total resources
-        sorted_l = sorted(pod_resources, key=key_function,reverse=True)
+        # Sort pods based on total resources
+        sorted_l = sorted(pod_resources, key=key_function, reverse=True)
     else:
         print(f"Failed to retrieve nginx pods running on node '{node_name}'.")
-        continue
-    
+        return
+
     picked_nginx_pod = sorted_l[0][0]
     # Rest of your code here
     bash_script_path = 'checktrynv.sh'
     print(f"the selected node to checkpoint :{node_name}")
     start_time = time.time()
-    run_bash_script(bash_script_path, [node_name, picked_nginx_pod,ranked_workers_vikor[-1]])
+    run_bash_script(bash_script_path, [node_name, picked_nginx_pod, ranked_workers_vikor[-1]])
     duration1 = time.time() - start_time
     print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
     bash_s2 = 'checknv.sh'
     print(f"the selected pod to checkpoint :{ranked_workers_vikor[-1]}")
-    run_bash_script(bash_s2, [ranked_workers_vikor[-1],node_name])
+    run_bash_script(bash_s2, [ranked_workers_vikor[-1], node_name, picked_nginx_pod])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timevikorn.csv'
-    update_csv_file(csv_file_path, [node_name, ranked_nodes_vikor[-1]durationt, duration1, duration2])
-    arguments = [picked_nginx_pod]
-    bash3 = 'changetnv.sh'
-    run_bash_script(bash3, [node_name])
-    subprocess.run(["python3", "delete.py"] + arguments)
+    update_csv_file(csv_file_path, [node_name, ranked_nodes_vikor[-1], durationt, duration1, duration2])
 
 # Load the dataset from CSV file
 csv_file_path = 'node_metrics.csv'
@@ -195,7 +185,7 @@ criteria_weights_vikor = {
     'Memory(%)': 0.5
 }
 
-# Specify the parameters for VIKOR
+# Specify the parameters for VIKOR (assuming values for v and s)
 v = 0.5  # VIKOR "v" parameter (0 <= v <= 1)
 s = 0.5  # VIKOR "s" parameter (0 <= s <= 1)
 

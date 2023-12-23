@@ -1,4 +1,4 @@
-import time,csv,sys,re
+\import time,csv,sys,re
 import subprocess
 import random
 import pandas as pd
@@ -123,17 +123,17 @@ def process_nodes(first_node, last_node):
 
     bash_s2 = 'checkzn.sh'
     print(f"the selected pod to checkpoint :{first_node}")
-    run_bash_script(bash_s2, [first_node,last_node])
+    run_bash_script(bash_s2, [first_node,last_node,picked_zookeeper_pod])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timenormalz.csv'
     update_csv_file(csv_file_path, [last_node,first_node, durationt, duration1, duration2])
-    arguments = [picked_zookeeper_pod]
-    bash3 = 'changetzn.sh'
-    run_bash_script(bash3, [node_name])
-    subprocess.run(["python3", "delete.py"] + arguments)
+#    arguments = [picked_zookeeper_pod]
+  #  bash3 = 'changetzn.sh'
+ #   run_bash_script(bash3, [node_name])
+ #   subprocess.run(["python3", "delete.py"] + arguments)
 
 # Read the CSV file into a list of dictionaries
 with open('node_metrics.csv', 'r') as file:

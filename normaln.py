@@ -92,7 +92,7 @@ def process_nodes(first_node, last_node):
         sorted_l = sorted(pod_resources, key=key_function,reverse=True)
     else:
         print(f"Failed to retrieve nginx pods running on node '{node_name}'.")
-        continue
+        return
     
     picked_nginx_pod = sorted_l[0][0]
 
@@ -106,17 +106,17 @@ def process_nodes(first_node, last_node):
 
     bash_s2 = 'checknn.sh'
     print(f"the selected pod to checkpoint :{first_node}")
-    run_bash_script(bash_s2, [first_node,last_node])
+    run_bash_script(bash_s2, [first_node,last_node,picked_nginx_pod])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timenormaln.csv'
     update_csv_file(csv_file_path, [last_node,first_node,durationt, duration1, duration2])
-    arguments = [picked_nginx_pod]
-    bash3 = 'changetnn.sh'
-    run_bash_script(bash3, [node_name])
-    subprocess.run(["python3", "delete.py"] + arguments)
+#    arguments = [picked_nginx_pod]
+ #   bash3 = 'changetnn.sh'
+#    run_bash_script(bash3, [node_name])
+ #   subprocess.run(["python3", "delete.py"] + arguments)
 
 # Read the CSV file into a list of dictionaries
 with open('node_metrics.csv', 'r') as file:

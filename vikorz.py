@@ -150,17 +150,17 @@ def process_window(chunk_df):
 
     bash_s2 = 'checkzv.sh'
     print(f"the selected pod to checkpoint :{ranked_workers_vikor[-1]}")
-    run_bash_script(bash_s2, [ranked_workers_vikor[-1],node_name])
+    run_bash_script(bash_s2, [ranked_workers_vikor[-1],node_name,picked_zookeeper_pod])
     durationt = time.time() - start_time
     duration2 = durationt - duration1
     print(f"Time Duration for the restore script: {duration2} seconds")
     print(f"Time Duration of total time : {durationt} seconds")
     csv_file_path = 'timevikorz.csv'
     update_csv_file(csv_file_path, [node_name, ranked_nodes_vikor[-1],durationt, duration1, duration2])
-    arguments = [picked_zookeeper_pod]
-    bash3 = 'changetzv.sh'
-    run_bash_script(bash3, [node_name])
-    subprocess.run(["python3", "delete.py"] + arguments)
+#    arguments = [picked_zookeeper_pod]
+ #   bash3 = 'changetzv.sh'
+#    run_bash_script(bash3, [node_name])
+ #   subprocess.run(["python3", "delete.py"] + arguments)
 
 # Load the dataset from CSV file
 csv_file_path = 'node_metrics.csv'

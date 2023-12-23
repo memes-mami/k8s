@@ -1,15 +1,22 @@
 #!/bin/bash
-CPU_THRESHOLD=1
-MEMORY_THRESHOLD=1
+CPU_THRESHOLD=33
+MEMORY_THRESHOLD=72
 csv_file="node_metrics.csv"
 
 # Accept the NODE_NAME as an argument
 NODE_NAME="$1"
 NODE_NAME2="$3"
-cpu_percentage=$(awk -F, -v node="$NODE_NAME2" '$2==NODE_NAME2 {gsub("%","",$4); print $4}' "$csv_file")
-memory_percentage=$(awk -F, -v node="$NODE_NAME2" '$2==NODE_NAME2 {gsub("%","",$6); print $6}' "$csv_file")
+#METRICS=$(kubectl top node $NODE_NAME | tail -n +2)
+#cpu_percentage=$(echo "$METRICS" | awk '{print $3}' | tr -d '%m')
+#memory_percentage=$(echo "$METRICS" | awk '{print $5}' | tr -d '%m')
+cpu_percentage=$(awk -F',' -v node="$NODE_NAME" 'NR>1 && $2 == node {gsub(/m|%/, "", $4); print $4}' "$csv_file")
+memory_percentage=$(awk -F',' -v node="$NODE_NAME" 'NR>1 && $2 == node {gsub(/Mi|%/, "", $6); print $6}' "$csv_file")
 
-if [ "$cpu_percentage" -gt "$CPU_THRESHOLD" ] || [ "$memory_percentage" -gt "$MEMORY_THRESHOLD" ]; then
+# Remove percentages and convert to integers
+cpu_percentage=$(echo "$cpu_percentage" | tr -d '%')
+memory_percentage=$(echo "$memory_percentage" | tr -d '%')
+
+if [[ "$cpu_percentage" -gt "$CPU_THRESHOLD" && "$memory_percentage" -gt "$MEMORY_THRESHOLD" ]]; then
 if [ -z "$NODE_NAME" ]; then
     echo "Usage: $0 <node-name>"
     exit 1
@@ -68,6 +75,7 @@ echo "Execution Time: $execution_time seconds"
 echo "$NODE_NAME,$NODE_NAME2,$execution_time" >> curl_n_n.csv
 
 # Extract the file location from the output JSON using jq
+start_time2=$(date +%s.%N)
 file_location=$(echo "$curl_output" | jq -r '.items[0]')
 if [ -n "$file_location" ]; then
     echo "File Location: $file_location"
@@ -77,4 +85,16 @@ if [ -n "$file_location" ]; then
 
     kubectl cp access-checkpoint-"$NODE_NAME":/mnt/checkpoints/"$filename" checkpointw/new_filename.tar
 fi
+end_time2=$(date +%s.%N)
+execution_time2=$(echo "$end_time2 - $start_time2" | bc)
+
+csv_file="copy_tar_n_n.csv"
+
+# Check if the file exists, create it if not
+if [ ! -f "$csv_file" ]; then
+    touch "$csv_file"
+fi
+
+
+echo "$NODE_NAME,$NODE_NAME2,$execution_time2" >> copy_tar_n_n.csv
 fi

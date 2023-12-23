@@ -1,1 +1,22 @@
 Timestamp,Node,CPU(cores),CPU(%),Memory(bytes),Memory(%)
+2023-12-23 15:25:27,master,552m,27%,2586Mi,32%
+2023-12-23 15:25:27,worker10,64m,6%,582Mi,73%
+2023-12-23 15:25:27,worker11,90m,9%,575Mi,72%
+2023-12-23 15:25:27,worker14,92m,9%,584Mi,73%
+2023-12-23 15:25:27,worker15,101m,10%,573Mi,72%
+2023-12-23 15:25:27,worker16,98m,9%,579Mi,72%
+2023-12-23 15:25:27,worker18,105m,10%,591Mi,74%
+2023-12-23 15:25:27,worker19,118m,11%,578Mi,72%
+2023-12-23 15:25:27,worker2,92m,9%,571Mi,71%
+2023-12-23 15:25:27,worker20,98m,9%,577Mi,72%
+2023-12-23 15:25:27,worker3,88m,8%,577Mi,72%
+2023-12-23 15:25:27,worker6,215m,10%,2765Mi,35%
+2023-12-23 15:25:27,worker7,153m,7%,2842Mi,36%
+2023-12-23 15:25:27,worker8,123m,12%,585Mi,73%
+2023-12-23 15:25:27,worker9,107m,10%,585Mi,73%
+2023-12-23 15:25:27,worker12,<unknown>,<unknown>,<unknown>,<unknown>
+2023-12-23 15:25:27,worker21,<unknown>,<unknown>,<unknown>,<unknown>
+2023-12-23 15:25:27,worker13,<unknown>,<unknown>,<unknown>,<unknown>
+2023-12-23 15:25:27,worker4,<unknown>,<unknown>,<unknown>,<unknown>
+2023-12-23 15:25:27,worker1,<unknown>,<unknown>,<unknown>,<unknown>
+2023-12-23 15:25:27,worker17,<unknown>,<unknown>,<unknown>,<unknown>

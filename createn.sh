@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for ((i=1; i<=11; i++)); do
-  for ((j=0; j<=5; j++)); do
+  for ((j=0; j<=8; j++)); do
     cat <<EOF
 ---
 apiVersion: v1
