@@ -1,5 +1,5 @@
 #!/bin/bash
-CPU_THRESHOLD=5
+CPU_THRESHOLD=4
 MEMORY_THRESHOLD=73
 csv_file="node_metrics.csv"
 

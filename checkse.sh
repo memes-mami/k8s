@@ -16,9 +16,6 @@ bash restorese.sh "$WORKER_NODE"
 end_time=$(date +%s.%N)
 
 
-start_time=$(date +%s.%N)
-bash restorese.sh "$WORKER_NODE" 
-end_time=$(date +%s.%N)
 
 
 execution_time=$(echo "$end_time - $start_time" | bc)
