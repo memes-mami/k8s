@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in {1..20}; do
+for i in {1..21}; do
   # Replace "X" with the current worker node number
   sed "s/workerX/worker$i/g" pod-template.yaml > access-checkpoint-worker$i.yaml
 

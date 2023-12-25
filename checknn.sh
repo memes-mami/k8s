@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 # Set the threshold values for CPU and memory usage
-CPU_THRESHOLD=33
-MEMORY_THRESHOLD=72
+CPU_THRESHOLD=15
+MEMORY_THRESHOLD=74
 csv_file="node_metrics.csv"
 # Specify the worker node name from the command line argument
 WORKER_NODE="$1"

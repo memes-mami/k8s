@@ -137,7 +137,7 @@ def process_window(chunk_df):
         sorted_list = sorted(pod_resources, key=key_function, reverse=True)
     else:
         print(f"Failed to retrieve Zookeeper pods running on node '{node_name}'.")
-        continue
+        return
     picked_zookeeper_pod = sorted_list[0][0]
 
     # Rest of your code here

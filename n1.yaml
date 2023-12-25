@@ -98,18 +98,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker1-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker1
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker2-0
   labels:
     app: nginx
@@ -195,18 +183,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker2-7
-  labels:
-    app: nginx
-spec:
-  nodeName: worker2
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx-pod-worker2-8
   labels:
     app: nginx
 spec:
@@ -314,18 +290,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker3-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker3
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker4-0
   labels:
     app: nginx
@@ -411,18 +375,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker4-7
-  labels:
-    app: nginx
-spec:
-  nodeName: worker4
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx-pod-worker4-8
   labels:
     app: nginx
 spec:
@@ -530,18 +482,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker5-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker5
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker6-0
   labels:
     app: nginx
@@ -627,18 +567,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker6-7
-  labels:
-    app: nginx
-spec:
-  nodeName: worker6
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx-pod-worker6-8
   labels:
     app: nginx
 spec:
@@ -746,18 +674,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker7-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker7
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker8-0
   labels:
     app: nginx
@@ -843,18 +759,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker8-7
-  labels:
-    app: nginx
-spec:
-  nodeName: worker8
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx-pod-worker8-8
   labels:
     app: nginx
 spec:
@@ -962,18 +866,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker9-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker9
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker10-0
   labels:
     app: nginx
@@ -1059,18 +951,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker10-7
-  labels:
-    app: nginx
-spec:
-  nodeName: worker10
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx-pod-worker10-8
   labels:
     app: nginx
 spec:
@@ -1178,18 +1058,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-worker11-8
-  labels:
-    app: nginx
-spec:
-  nodeName: worker11
-  containers:
-    - name: nginx-container
-      image: nginx:latest
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: nginx-pod-worker12-0
   labels:
     app: nginx
@@ -1251,6 +1119,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker12-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-7
   labels:
     app: nginx
 spec:
@@ -1334,6 +1226,30 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-pod-worker13-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
   name: nginx-pod-worker14-0
   labels:
     app: nginx
@@ -1395,6 +1311,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker14-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-7
   labels:
     app: nginx
 spec:
@@ -1478,6 +1418,30 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-pod-worker15-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
   name: nginx-pod-worker16-0
   labels:
     app: nginx
@@ -1539,6 +1503,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker16-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-7
   labels:
     app: nginx
 spec:
@@ -1622,6 +1610,30 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-pod-worker17-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
   name: nginx-pod-worker18-0
   labels:
     app: nginx
@@ -1683,6 +1695,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker18-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-7
   labels:
     app: nginx
 spec:
@@ -1766,6 +1802,30 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-pod-worker19-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker19-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
   name: nginx-pod-worker20-0
   labels:
     app: nginx
@@ -1838,6 +1898,30 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-pod-worker20-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker20
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker20-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker20
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
   name: nginx-pod-worker21-0
   labels:
     app: nginx
@@ -1899,6 +1983,30 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod-worker21-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker21
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker21-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker21
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker21-7
   labels:
     app: nginx
 spec:

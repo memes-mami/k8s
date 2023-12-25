@@ -1,4 +1,4 @@
-\import time,csv,sys,re
+import time,csv,sys,re
 import subprocess
 import random
 import pandas as pd

@@ -1,6 +1,6 @@
 #!/bin/bash
-CPU_THRESHOLD=18
-MEMORY_THRESHOLD=73
+CPU_THRESHOLD=8
+MEMORY_THRESHOLD=39
 
 
 # Accept the NODE_NAME as an argument

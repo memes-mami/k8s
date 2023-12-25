@@ -4,7 +4,7 @@
 output_csv="node_metrics_trace.csv"
 
 # Define the duration in seconds
-duration=300000 # Collect metrics for 10 times, with 30 seconds between each collection
+duration=600000 # Collect metrics for 10 times, with 30 seconds between each collection
 
 # Define the interval in seconds
 interval=15  # Collect metrics every 30 seconds

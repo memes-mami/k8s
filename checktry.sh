@@ -68,5 +68,5 @@ if [ -n "$file_location" ]; then
     # Extract the filename from the full path
     filename=$(basename "$file_location")
 
-    kubectl cp access-checkpoint-"$NODE_NAME":/mnt/checkpoints/"$filename" checkpointw/new_filename.tar
+    kubectl cp access-checkpoint-"$NODE_NAME":/mnt/checkpoints/"$filename" check/new_filename.tar
 fi

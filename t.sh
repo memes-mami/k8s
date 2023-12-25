@@ -1,16 +1,28 @@
 #!/bin/bash
 
-# Run kubectl command and filter using grep
-pod_info=$(kubectl get pod | grep new)
+# Function to shuffle an array
+shuffle() {
+    local i tmp size arr
+    arr=("$@")
+    size=${#arr[@]}
+    for ((i=size-1; i>0; i--)); do
+        j=$((RANDOM % (i + 1)))
+        tmp=${arr[i]}
+        arr[i]=${arr[j]}
+        arr[j]=$tmp
+    done
+    echo "${arr[@]}"
+}
 
-# Extract the pod name using awk and save it as a variable
-pod_name=$(echo "$pod_info" | awk '{print $1}')
+# Worker node numbers
+worker_nodes=(1 2 3 4  6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21)
 
-# Print the pod name
-echo "Pod Name: $pod_name"
+# Shuffle worker node numbers
+shuffled_nodes=($(shuffle "${worker_nodes[@]}"))
 
-# Save the pod name as a variable for later use
-export MY_POD_NAME="$pod_name"
+# Get the first node from shuffled_nodes
+selected_node="${shuffled_nodes[0]}"
 
-# Print the variable
-echo "My Pod Name (from variable): $MY_POD_NAME"
+# Pass the selected node as an argument to another script
+#./your_another_script.sh "$selected_node"
+echo "$shuffled_nodes"

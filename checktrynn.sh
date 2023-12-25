@@ -1,6 +1,6 @@
 #!/bin/bash
-CPU_THRESHOLD=33
-MEMORY_THRESHOLD=72
+CPU_THRESHOLD=15
+MEMORY_THRESHOLD=74
 csv_file="node_metrics.csv"
 
 # Accept the NODE_NAME as an argument

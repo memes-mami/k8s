@@ -21,7 +21,7 @@ worker_nodes=(1 2 3 4  6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21)
 shuffled_nodes=($(shuffle "${worker_nodes[@]}"))
 
 # Number of pods to add
-num_pods=3
+num_pods=2
 
 # Iterate over shuffled worker nodes and create pods
 for ((i=0; i<num_pods; i++)); do

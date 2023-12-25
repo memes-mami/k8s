@@ -19,6 +19,10 @@ fi
 # Extract CPU% and Memory% for the specified node and remove '%'
 cpu_percentage=$(awk -F, -v node="$node" '$2==node {gsub("%","",$4); print $4}' "$csv_file")
 memory_percentage=$(awk -F, -v node="$node" '$2==node {gsub("%","",$6); print $6}' "$csv_file")
+if [ "$cpu_percentage" = "<unknown>" ]; then
+    echo "CPU percentage is unknown. Exiting the script."
+    exit 1  # Exit with an error status
+fi
 
 sed -i "s/CPU_THRESHOLD=.*$/CPU_THRESHOLD=$cpu_percentage/" checkzv.sh
 sed -i "s/MEMORY_THRESHOLD=.*$/MEMORY_THRESHOLD=$memory_percentage/" checkzv.sh
