@@ -69,7 +69,7 @@ start_time2=$(date +%s.%N)
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PATH"
 
 end_time2=$(date +%s.%N)
-execution_time2=$(echo "$end_time - $start_time" | bc)
+execution_time2=$(echo "$end_time2 - $start_time2" | bc)
 echo "$NODE_NAME,$WORKER_NODE,$execution_time2" >> extract_z_v.csv
 
 # Step 4: Start ZooKeeper in the new pod
