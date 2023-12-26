@@ -121,6 +121,7 @@ for chunk_df in chunks:
 
 # Convert columns to numeric
     df2['CPU(%)'] = pd.to_numeric(df2['CPU(%)'])
+
     df2['Memory(%)'] = pd.to_numeric(df2['Memory(%)'])
 #    chunk_df['Node'] = ['worker' + str(i) for i in range(1, 22) if i != 5]
     chunk_df[ 'Node'] = ['worker' + str(i) for i in range(1, 22) if i != 5]

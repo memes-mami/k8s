@@ -199,14 +199,14 @@ for chunk_df in chunks:
             print(f"Failed to retrieve Zookeeper pods running on node '{node_name}'.")
             continue
         picked_zookeeper_pod = sorted_list[0][0]
-        bash_script_path = 'checktryse.sh'
+        bash_script_path = 'checktryst.sh'
         print(f"the selected node to checkpoint :{node_name}")
         start_time = time.time()
         run_bash_script(bash_script_path, [node_name,picked_zookeeper_pod])
         duration1 = time.time() - start_time
         print(f"Time Duration for the checkpoint script: {duration1} seconds")
 
-        bash_s2 = 'checkse.sh'
+        bash_s2 = 'checkst.sh'
         print(f"the selected pod to checkpoint :{ranked_nodes_electre[-1]}")
         run_bash_script(bash_s2, [ranked_nodes_electre[-1],picked_zookeeper_pod])
         durationt = time.time() - start_time

@@ -1,17 +1,3 @@
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/etc/kubernetes/admin.conf
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
-mkdir -p $HOME/.kube
 sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 export KUBECONFIG=/etc/kubernetes/admin.conf
@@ -1998,3 +1984,17 @@ bash contiadddzoo.sh
 bash contiaddzoo.sh
 cd
 bash infinite.sh
+cd
+bash finalvikorz.sh
+cd
+bas finalvikorz.sh
+cd
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master10
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master10
+clear
+cd
+kubectl top no
+bash contiaddzoo.sh

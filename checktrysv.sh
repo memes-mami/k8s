@@ -51,7 +51,7 @@ curl_output=$(curl -sk -X POST "$checkpoint_url" \
 # Capture the end time
 end_time=$(date +%s.%N)
 execution_time=$(echo "$end_time - $start_time" | bc)
-echo "$NODE_NAME,$POD_NAME,$execution_time" >> curl_s_e.csv
+echo "$NODE_NAME,$POD_NAME,$execution_time" >> curl_s_v.csv
 # Display the output of the curl command
 echo "Curl command output:"
 echo "$curl_output"

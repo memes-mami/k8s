@@ -12,10 +12,9 @@ pod_name="$2"
 
 
 start_time=$(date +%s.%N)
-bash restorese.sh "$WORKER_NODE" 
+bash restorest.sh "$WORKER_NODE"
 end_time=$(date +%s.%N)
 execution_time=$(echo "$end_time - $start_time" | bc)
-echo "$check_node,$WORKER_NODE,$execution_time" >> restore_s_e.csv
+echo "$check_node,$WORKER_NODE,$execution_time" >> restore_s_t.csv
 python_script="delete.py"
 python3 "$python_script" "$pod"
-

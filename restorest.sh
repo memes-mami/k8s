@@ -41,7 +41,7 @@ done
 
 end_time=$(date +%s.%N)
 execution_time=$(echo "$end_time - $start_time" | bc)
-echo "$check_node,$WORKER_NODE,$execution_time" >> podrun_s_e.csv
+echo "$check_node,$WORKER_NODE,$execution_time" >> podrun_s_t.csv
 kubectl cp checkpointnew/$BACKUP_FILE $NEW_POD_NAME:$BACKUP_DEST_PATH
 
 start_time2=$(date +%s.%N)
@@ -53,4 +53,4 @@ kubectl exec $NEW_POD_NAME -- /bin/bash -c "cd /tmp && tar -xvf $BACKUP_DEST_PAT
 kubectl exec $NEW_POD_NAME -- /bin/bash -c "$ZK_EXEC_PATH start"
 end_time2=$(date +%s.%N)
 execution_time2=$(echo "$end_time2 - $start_time2" | bc)
-echo "$node_name,$WORKER_NODE,$execution_time2" >> extract_s_e.csv
+echo "$node_name,$WORKER_NODE,$execution_time2" >> extract_s_t.csv
