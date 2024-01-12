@@ -705,3 +705,47 @@ ls
 nano  metricz-m.csv
 cd
 eval "$(ssh-agent -s)"
+cd
+ssh -T git@github.com
+ssh -T git@github.comssh -T git@github.com
+ssh -T git@github.com
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master11
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master11
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master11
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master11
+git init
+git add .
+git commit -m "Add files to master4 branch"
+git checkout -b master11
+git push origin master11
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master11
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master11
+git remote -v
+ssh -T git@github.com
+git init
+git remote -v
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master11
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master11
+git clone git@github.com:memes-mami/k8s.git
+ls
+rm k8s
+rm -rf k8s
+git init
+git remote -v
+git clone git@github.com:memes-mami/k8s.git
+git checkout -b master11
+git add .
+git commit -m "Add files to master4 branch"
+git push origin master11
