@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  nodeName: master  # Replace <node-name> with the node name you want to schedule the pod on
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod2
+spec:
+  nodeName:   master #Replace <node-name> with the node name you want to schedule the pod on
+  containers:
+    - name: nginx-container
+      image: nginx:latest

@@ -1,0 +1,1704 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker1-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker1
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker1-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker1
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker2-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker2
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker2-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker2
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker2-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker2
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker3-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker3
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker3-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker3
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker3-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker3
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker3-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker3
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker4-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker4
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker4-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker4
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker4-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker4
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker4-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker4
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker4-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker4
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker5-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker5
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker6-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker6
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker7-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker7
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker8-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker8
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker9-9
+  labels:
+    app: nginx
+spec:
+  nodeName: worker9
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-9
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker10-10
+  labels:
+    app: nginx
+spec:
+  nodeName: worker10
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-9
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-10
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker11-11
+  labels:
+    app: nginx
+spec:
+  nodeName: worker11
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-9
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker12-10
+  labels:
+    app: nginx
+spec:
+  nodeName: worker12
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker13-9
+  labels:
+    app: nginx
+spec:
+  nodeName: worker13
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker14-8
+  labels:
+    app: nginx
+spec:
+  nodeName: worker14
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker15-7
+  labels:
+    app: nginx
+spec:
+  nodeName: worker15
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker16-6
+  labels:
+    app: nginx
+spec:
+  nodeName: worker16
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker17-5
+  labels:
+    app: nginx
+spec:
+  nodeName: worker17
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker18-4
+  labels:
+    app: nginx
+spec:
+  nodeName: worker18
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker19-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker19-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker19-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker19-3
+  labels:
+    app: nginx
+spec:
+  nodeName: worker19
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker20-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker20
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker20-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker20
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker20-2
+  labels:
+    app: nginx
+spec:
+  nodeName: worker20
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker21-0
+  labels:
+    app: nginx
+spec:
+  nodeName: worker21
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-worker21-1
+  labels:
+    app: nginx
+spec:
+  nodeName: worker21
+  containers:
+    - name: nginx-container
+      image: nginx:latest

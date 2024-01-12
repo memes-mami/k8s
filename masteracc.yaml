@@ -1,0 +1,18 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: access-checkpoint-master  # Worker node number will replace X
+spec:
+  nodeName: master  
+  volumes:
+    - name: checkpoint-volume
+      hostPath:
+        path: /var/lib/kubelet/checkpoints
+  containers:
+    - name: access-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: "/mnt/checkpoints"
+          name: checkpoint-volume
+
